@@ -17,9 +17,6 @@ class QuizViewModel(application: Application) : AndroidViewModel(application) {
     val quiz = quizRepository.quiz
     val createSuccess = quizRepository.createSuccess
 
-    private val _errorText: MutableLiveData<String> = MutableLiveData()
-    val errorText: LiveData<String> get() = _errorText
-
     fun getQuiz() {
         viewModelScope.launch {
             try {
@@ -27,7 +24,6 @@ class QuizViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: QuizRepository.QuizRetrievalError) {
                 val errorMsg = "Something went wrong while saving profile"
                 Log.e(TAG, e.message ?: errorMsg)
-                _errorText.value = errorMsg
             }
         }
     }
@@ -39,7 +35,6 @@ class QuizViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: QuizRepository.QuizSaveError) {
                 val errorMsg = "Something went wrong while saving profile"
                 Log.e(TAG, e.message ?: errorMsg)
-                _errorText.value = errorMsg
             }
         }
     }
