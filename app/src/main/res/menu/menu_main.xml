@@ -1,4 +1,4 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
-    tools:context="nl.svdoetelaar.madlevel7task2.MainActivity">
+    tools:context="nl.svdoetelaar.madlevel7task2.ui.MainActivity">
 
 </menu>
